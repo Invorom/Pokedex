@@ -1,0 +1,31 @@
+header{
+    background-color: #AAA;
+    color: #FFF;
+    padding: 15px 30px;
+}
+
+nav > a{
+    padding: 0.5em;
+}
+nav > a:hover{
+    text-decoration: underline;
+}
+
+.logo{
+    height: 40px;
+}
+
+main{
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main >h1{
+    font-size: 45px;
+    text-transform: uppercase;
+}
+
+.img-index{
+    width: 50%;
+}
