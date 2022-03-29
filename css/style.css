@@ -97,6 +97,10 @@ html {
     font-family: 'Lato';
 }
 
+body{
+    margin: 0;
+}
+
 header, footer{
     background-color: #AAA;
     color: #FFF;
@@ -105,10 +109,27 @@ header, footer{
     
 }
 
-nav > a{
-    padding: 0.5em;
+.div-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
-nav > a:hover{
+.display-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+ul{
+    
+    list-style: none;
+}
+a{
+    padding: 0.5em;
+    text-decoration: none;
+    color: #FFF;
+}
+a:hover{
     text-decoration: underline;
 }
 
