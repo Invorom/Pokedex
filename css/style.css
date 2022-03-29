@@ -1,9 +1,10 @@
 /*  GLOBAL  */
 
-header{
+header, footer{
     background-color: #AAA;
     color: #FFF;
     padding: 15px 30px;
+    margin: 0;
 }
 
 nav > a{
