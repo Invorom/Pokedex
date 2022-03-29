@@ -9,16 +9,17 @@
                 <li>
                     <a href="collection.php.html" title="Aller sur la page de collection">Collection</a>
                 </li>
-            </ul>
-            <?php
-                if (isset($_SESSION['email'])){
-                    echo '<li><a href="deconnextion.php" title="Se déconnecter">Déconnexion</a></li>';
-                    echo '<li><a href="profile.php" title="Aller sur la page de profile">Mon Compte</a></li>';
-                } else {
-                    echo '<li><a href="connexion.php" title="Connexion">Déconnexion</a></li>';
-                }
+            
+                <?php
+                    if (isset($_SESSION['email'])){
+                        echo '<li><a href="deconnexion.php" title="Se déconnecter">Déconnexion</a></li>';
+                        echo '<li><a href="profile.php" title="Aller sur la page de profile">Mon Compte</a></li>';
+                    } else {
+                        echo '<li><a href="connexion.php" title="Connexion">Déconnexion</a></li>';
+                    }
 
-            ?>
+                ?>
+            </ul>
 
         </nav>
     </div>

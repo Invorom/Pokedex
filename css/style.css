@@ -1,5 +1,10 @@
 /*  GLOBAL  */
 
+
+html {
+    overflow: hidden;
+}
+
 header, footer{
     background-color: #AAA;
     color: #FFF;
