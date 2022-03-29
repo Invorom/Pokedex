@@ -8,14 +8,14 @@
     <?php include('includes/header.php');?>
     <main>
         <?php include('includes/message.php'); ?>
-        <form action="verification.php" method="POST">
+        <form action="verif_connexion.php" method="POST">
              <h1>Connexion</h1>
              <input type="email" name="username" value="<?php echo isset($_COOKIE['cookie_username']) ? $_COOKIE['cookie_username'] : '';?>" placeholder="Username">
              <br>
              <input type="password" name="password" value="" placeholder="password">
              <input type="submit" name="connexion" value="Connexion">
         </form>
-        <form action="verification_inscription.php" method="POST" enctype="multipart/form-data">
+        <form action="verif_inscription.php" method="POST" enctype="multipart/form-data">
             <h1>Inscription</h1>
             <div>
                 <label>Votre email</label>

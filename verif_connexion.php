@@ -12,7 +12,7 @@
 
     include('includes/db.php');
     include('includes/salt.php');
-    $q = 'SELECT * FROM users WHERE email = :email AND password = :password';
+    $q = 'SELECT * FROM user WHERE email = :email AND password = :password';
     $req = $bdd->prepare($q);
     $req->execute(['email' => $_POST['username'],
                     'password' => $empreinteSalee

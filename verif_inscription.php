@@ -24,7 +24,7 @@
 
     include('Includes/db.php');
 
-    $q = 'SELECT id FROM users WHERE email = ?';
+    $q = 'SELECT id FROM user WHERE email = ?';
     $req = $bdd->prepare($q);
     $req->execute([$_POST['register_username']]);
     $result = $req->fetchAll();
@@ -79,7 +79,7 @@
     $empreinteSalee = hash('sha512', $salt . $_POST['register_password']);
 
 
-    $q = 'INSERT INTO users (email, password, image) VALUES (:email, :password, :image)';
+    $q = 'INSERT INTO user (email, password, image) VALUES (:email, :password, :image)';
     $req = $bdd->prepare($q);
     $result = $req->execute([   'email' => $_POST['register_username'], 
                                 'password' => $empreinteSalee,
