@@ -3,8 +3,11 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-
-<?php include ('includes/head.php'); ?>
+    
+<?php
+$title="Accueil";
+include ('includes/head.php');
+?>
 
 <body>
     <?php include ('includes/header.php'); ?>
