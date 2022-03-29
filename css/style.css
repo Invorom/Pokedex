@@ -5,6 +5,10 @@ html {
     overflow: hidden;
 }
 
+body{
+    margin: 0;
+}
+
 header, footer{
     background-color: #AAA;
     color: #FFF;
