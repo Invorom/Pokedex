@@ -1,3 +1,5 @@
+/*  GLOBAL  */
+
 header{
     background-color: #AAA;
     color: #FFF;
@@ -26,6 +28,24 @@ main >h1{
     text-transform: uppercase;
 }
 
+.center{
+    text-align: center;
+}
+
+/*  INDEX  */
+
 .img-index{
     width: 50%;
+}
+
+/*  PAGE DE CONNEXION  */
+
+.left-div{
+    width: 49%;
+    margin-right: 1%;
+}
+
+.right-div{
+    width: 49%;
+    margin-left: 1%;
 }
