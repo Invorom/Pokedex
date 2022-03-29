@@ -4,10 +4,10 @@
         <nav>
             <ul class="display-row">
                 <li>
-                    <a href="index.html" title="Aller sur la page d'accueil">Accueil</a>
+                    <a href="index.php" title="Aller sur la page d'accueil">Accueil</a>
                 </li>
                 <li>
-                    <a href="collection.php.html" title="Aller sur la page de collection">Collection</a>
+                    <a href="collection.php" title="Aller sur la page de collection">Collection</a>
                 </li>
             
                 <?php
