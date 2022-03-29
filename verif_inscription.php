@@ -6,19 +6,19 @@
     
     if(empty($_POST['register_username']) && empty($_POST['register_password']))
     {
-        header('location:inscription.php?message=Vous devez remplir les deux champs');
+        header('location:connexion.php?message=Vous devez remplir les deux champs');
         exit;
     }
 
     if(!filter_var($_POST['register_username'], FILTER_VALIDATE_EMAIL) || empty($_POST['register_username']))
     {
-        header('location:inscription.php?message= Email invalide');
+        header('location:connexion.php?message= Email invalide');
         exit;
     }
     
     if(strlen($_POST['register_password']) < 6 || strlen($_POST['register_password']) > 12)
     {
-        header('location:inscription.php?message= mot de passse incorrect');
+        header('location:connexion.php?message= mot de passse incorrect');
         exit;
     }
 
@@ -31,7 +31,7 @@
 
     if(count($result) != 0)
     {
-        header('location:inscription.php?message= Email déjà utilisé');
+        header('location:connexion.php?message= Email déjà utilisé');
         exit;
     }
 
@@ -44,14 +44,14 @@
                         ];
 
         if(!in_array($_FILES['image']['type'], $acceptable)){
-            header('location:inscription.php?message=Type de fichier incorrect');
+            header('location:connexion.php?message=Type de fichier incorrect');
             exit;
         }
 
         $maxSize = 2*1024*1024;
         if($_FILES['image']['size'] > $maxSize)
         {
-            header('location:inscription.php?message=Fichier trop lourd (2Mo max)');
+            header('location:connexion.php?message=Fichier trop lourd (2Mo max)');
             exit;
         }
 
@@ -94,7 +94,7 @@
     }
     else
     {
-        header('location:inscription.php?message= Erreur lors de l\'inscription');
+        header('location:connexion.php?message= Erreur lors de l\'inscription');
         exit;
     }
 ?>
