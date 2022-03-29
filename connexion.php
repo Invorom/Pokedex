@@ -29,7 +29,7 @@
                 <label>Votre image de profile</label>
                 <input type="file" name="image" accept="image/gif, image/png, image/jpeg">
             </div>
-            <input name="register_connexion" value="S'inscrire">
+            <input type="submit" name="register_connexion" value="S'inscrire">
         </form>
     </main>
     <?php include('includes/Footer.php');?>
