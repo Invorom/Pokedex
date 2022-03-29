@@ -1,8 +1,8 @@
 <header>
-    <div class="container">
+    <div class="container div-header">
         <img class="logo" src="images/logo.png" alt="Logo site pokedex" class="logo">
         <nav>
-            <ul>
+            <ul class="display-row">
                 <li>
                     <a href="index.html" title="Aller sur la page d'accueil">Accueil</a>
                 </li>

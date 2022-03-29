@@ -12,10 +12,27 @@ header, footer{
     margin: 0;
 }
 
-nav > a{
-    padding: 0.5em;
+.div-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
-nav > a:hover{
+.display-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+ul{
+    
+    list-style: none;
+}
+a{
+    padding: 0.5em;
+    text-decoration: none;
+    color: #FFF;
+}
+a:hover{
     text-decoration: underline;
 }
 
