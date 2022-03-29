@@ -15,7 +15,7 @@
                         echo '<li><a href="deconnexion.php" title="Se déconnecter">Déconnexion</a></li>';
                         echo '<li><a href="profile.php" title="Aller sur la page de profile">Mon Compte</a></li>';
                     } else {
-                        echo '<li><a href="connexion.php" title="Connexion">Déconnexion</a></li>';
+                        echo '<li><a href="connexion.php" title="Connexion">Connexion</a></li>';
                     }
 
                 ?>
