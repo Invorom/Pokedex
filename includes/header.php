@@ -1,6 +1,6 @@
 <header>
     <div class="container">
-        <img src="images/logo.png" alt="Logo site pokedex">
+        <img class="logo" src="images/logo.png" alt="Logo site pokedex">
         <nav>
             <ul>
                 <li>Accueil</li>
