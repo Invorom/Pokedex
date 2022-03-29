@@ -7,6 +7,7 @@
     <body>
     <?php include('includes/header.php');?>
     <main>
+        <?php include('includes/message.php'); ?>
         <form action="verification.php" method="POST">
              <h1>Connexion</h1>
              <input type="email" name="username" value="<?php echo isset($_COOKIE['cookie_username']) ? $_COOKIE['cookie_username'] : '';?>" placeholder="Username">
