@@ -1,6 +1,6 @@
 <?php
     if(isset($_GET['message']) && !empty($_GET['message'])){
-        echo '<div' .htmlspecialchars($_GET['message']). '</div>';
+        echo '<div><p>' .htmlspecialchars($_GET['message']). '</p></div>';
     }
 
 ?>
