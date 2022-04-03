@@ -5,7 +5,7 @@ session_start();
 <html lang="fr">
     
 <?php
-$title="Accueil";
+$title="Collection";
 include ('includes/head.php');
 ?>
 

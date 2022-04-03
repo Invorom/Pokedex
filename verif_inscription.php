@@ -12,17 +12,17 @@
 
     if(!filter_var($_POST['register_username'], FILTER_VALIDATE_EMAIL) || empty($_POST['register_username']))
     {
-        header('location:connexion.php?message= Email invalide');
+        header('location:connexion.php?message=Email invalide');
         exit;
     }
     
     if(strlen($_POST['register_password']) < 6 || strlen($_POST['register_password']) > 12)
     {
-        header('location:connexion.php?message= mot de passse incorrect');
+        header('location:connexion.php?message=Mot de passse incorrect');
         exit;
     }
 
-    include('Includes/db.php');
+    include('includes/db.php');
 
     $q = 'SELECT id FROM user WHERE email = ?';
     $req = $bdd->prepare($q);

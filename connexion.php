@@ -22,7 +22,7 @@
                 <input type="email" name="register_username" value="<?php echo isset($_COOKIE['register_cookie']) ? $_COOKIE['register_cookie'] : '';?>" placeholder="Username" required>
             </div>
             <div>
-                <label>Votre email</label>
+                <label>Votre mot de passe</label>
                 <input type="password" name="register_password" value="" placeholder="password" required>
             </div>
             <div>
