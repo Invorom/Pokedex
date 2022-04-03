@@ -31,7 +31,7 @@
 
     if(count($result) != 0)
     {
-        header('location:connexion.php?message= Email déjà utilisé');
+        header('location:connexion.php?message=Email déjà utilisé');
         exit;
     }
 
