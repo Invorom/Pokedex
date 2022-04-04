@@ -25,7 +25,6 @@ include ('includes/head.php');
             $results = $req->fetchAll();
             $count = 0;
 
-            //var_dump($results);
             echo '<div class="row">';
             foreach ($results as $key => $value){
                 include('includes/pokemon_display.php');
