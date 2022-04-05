@@ -1,12 +1,10 @@
-<?php
-session_start();
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr" class="one-page">
     
 <?php
-$title="Accueil";
-include ('includes/head.php');
+    $title="Accueil";
+    include ('includes/head.php');
 ?>
 
 <body>
@@ -18,6 +16,5 @@ include ('includes/head.php');
     </main>
 
     <?php include ('includes/footer.php'); ?>
-    
 </body>
 </html>
