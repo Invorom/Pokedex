@@ -104,9 +104,6 @@
         }
     }
 
-
-
-
     header('location:connexion.php?message=Erreur lors de l\'inscription. Veuillez réessayer ultérieurement.');
     exit();
 ?>
