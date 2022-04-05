@@ -32,6 +32,6 @@
             <input type="submit" name="register_connexion" value="S'inscrire">
         </form>
     </main>
-    <?php include('includes/Footer.php');?>
+    <?php include('includes/footer.php');?>
     </body>
 </html>
