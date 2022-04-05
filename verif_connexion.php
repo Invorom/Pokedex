@@ -7,7 +7,7 @@
     if(empty($_POST['email']) || empty($_POST['password']))
     {
         header('location:connexion.php?message=Veuillez remplir les deux champs.');
-        exit;
+        exit();
     }
 
     include('includes/config.php');
@@ -26,11 +26,11 @@
     if(count($result) == 0)
     {
         header('location:connexion.php?message=Identifiants incorrects.');
-        exit;
+        exit();
     }
     
     session_start();
     $_SESSION['email'] = $_POST['email'];
     header('location:index.php');
-    exit;
+    exit();
 ?>

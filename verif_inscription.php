@@ -7,19 +7,19 @@
     if (empty($_POST['register_username']) && empty($_POST['register_password']))
     {
         header('location:connexion.php?message=Vous devez remplir les deux champs.');
-        exit;
+        exit();
     }
 
     if (!filter_var($_POST['register_username'], FILTER_VALIDATE_EMAIL))
     {
         header('location:connexion.php?message=Email invalide.');
-        exit;
+        exit();
     }
     
     if(strlen($_POST['register_password']) < 6)
     {
         header('location:connexion.php?message=Votre mot de passe doit faire au moins 6 caractères.');
-        exit;
+        exit();
     }
 
     include('includes/config.php');
@@ -32,7 +32,7 @@
     if(count($result) != 0)
     {
         header('location:connexion.php?message=Adresse email déjà utilisée.');
-        exit;
+        exit();
     }
 
     if($_FILES['image']['error'] != 4)
@@ -41,14 +41,14 @@
 
         if(!in_array($_FILES['image']['type'], $acceptable)){
             header('location:connexion.php?message=Veuillez utiliser une image au format jpeg, png ou gif.');
-            exit;
+            exit();
         }
 
         $maxSize = 2*1024*1024;
         if($_FILES['image']['size'] > $maxSize)
         {
             header('location:connexion.php?message=Fichier image trop lourd (2 Mo max).');
-            exit;
+            exit();
         }
 
         $uploadsPath = 'uploads';
@@ -88,9 +88,9 @@
     if($result)
     {
         header('location:connexion.php?message=Compte créé avec succès !');
-        exit;
+        exit();
     }
 
     header('location:connexion.php?message=Erreur lors de l\'inscription');
-    exit;
+    exit();
 ?>

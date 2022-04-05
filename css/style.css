@@ -114,6 +114,7 @@ h1 {
     max-height: 100%;
 }
 
+
 /*************************** A D D   P O K E M O N ***************************/
 
 .add-pokemon {
@@ -139,6 +140,10 @@ h1 {
     background-color: #4DAE50;
     color: white;
     font-family: "Lato";
+    cursor: pointer;
+}
+.submit-btn:hover{
+    background-color: #3D9C3D;
 }
 
 
