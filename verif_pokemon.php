@@ -110,7 +110,7 @@
                         "attack" => $attack,
                         "defense" => $defense,
                         "speed" => $speed,
-                        "image" => $_FILES['image']['name'],
+                        "image" => $fileNameNew,
                         "id_user" => $_SESSION['id']
                     ]);
 
