@@ -10,33 +10,28 @@ html {
     font-family: 'Lato';
 }
 
-body {
-    margin: 0;
-}
-
 header, footer{
     background-color: #AAA;
     color: #FFF;
     padding: 15px 30px;
-    margin: 0;
-    
 }
 
-.div-header{
+/******************************** H E A D E R ********************************/
+
+header {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-}
-.display-row{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    align-items: center;
 }
 
-ul{
-    
+nav ul {
     list-style: none;
 }
+
+nav li {
+    display: inline-block;
+}
+
 a {
     padding: 0.5em;
     text-decoration: none;
@@ -50,14 +45,16 @@ a:hover{
     height: 40px;
 }
 
-main{
+/********************************** M A I N **********************************/
+
+main {
     max-width: 1170px;
     margin-left: auto;
     margin-right: auto;
     font-style: normal;
 }
 
-main >h1{
+main > h1 {
     font-size: 45px;
     text-transform: uppercase;
 }
@@ -65,7 +62,6 @@ main >h1{
 .center{
     text-align: center;
 }
-
 
 .row{
     display: flex;
@@ -106,6 +102,9 @@ main >h1{
     max-width: 100%;
     max-height: 100%;
 }
+
+
+/******************************** F O O T E R ********************************/
 
 footer {
     position: absolute;
