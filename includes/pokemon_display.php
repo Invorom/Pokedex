@@ -12,7 +12,7 @@
     </div>
     <div class="little-cell">
         <?php 
-            echo '<img class="image-size" src="uploads_pokemon/' . htmlspecialchars($results[$key]['image']) . '" alt=" NOT FOUND">';
+            echo '<img class="image-size" src="uploads_pokemon/' . htmlspecialchars($results[$key]['image']) . '" alt="NOT FOUND">';
         ?>
     </div>
 

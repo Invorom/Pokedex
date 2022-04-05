@@ -74,70 +74,70 @@
         }
     }
 
-    // Add pokemon to database
-    $query = 'INSERT INTO pokemon (nom, pv, attaque, defense, vitesse, image, id_user) VALUES (:name, :pv, :attack, :defense, :speed, :image, :id_user)';
-    $prepared_query = $db->prepare($query);
-    $result = $prepared_query->execute
-    ([
-        "name" => $name,
-        "pv" => $pv,
-        "attack" => $attack,
-        "defense" => $defense,
-        "speed" => $speed,
-        "image" => $_FILES['image']['name'],
-        "id_user" => $_SESSION['id']
-    ]);
+    // Add Pokemon image
+    $uploadsPath = 'uploads_pokemon';
 
-    if ($result)
+    //Add pokemon image to uploads_pokemon folder
+    if ($_FILES['image']['error'] != 4)
     {
-        // Add Pokemon image
-        $uploadsPath = 'uploads_pokemon';
+        $fileName = $_FILES['image']['name'];
+        $fileTmpName = $_FILES['image']['tmp_name'];
+        $fileSize = $_FILES['image']['size'];
+        $fileError = $_FILES['image']['error'];
+        $fileType = $_FILES['image']['type'];
 
-        //Add pokemon image to uploads_pokemon folder
-        if ($_FILES['image']['error'] != 4)
+        $fileExt = explode('.', $fileName);
+        $fileActualExt = strtolower(end($fileExt));
+
+        $allowed = array('jpg', 'jpeg', 'png', 'gif');
+
+        if (in_array($fileActualExt, $allowed))
         {
-            $fileName = $_FILES['image']['name'];
-            $fileTmpName = $_FILES['image']['tmp_name'];
-            $fileSize = $_FILES['image']['size'];
-            $fileError = $_FILES['image']['error'];
-            $fileType = $_FILES['image']['type'];
-
-            $fileExt = explode('.', $fileName);
-            $fileActualExt = strtolower(end($fileExt));
-
-            $allowed = array('jpg', 'jpeg', 'png', 'gif');
-
-            if (in_array($fileActualExt, $allowed))
+            if ($fileError === 0)
             {
-                if ($fileError === 0)
+                if ($fileSize < $maxSize)
                 {
-                    if ($fileSize < $maxSize)
+                    $fileNameNew = uniqid('', true).".".$fileActualExt;
+                    $fileDestination = $uploadsPath.'/'.$fileNameNew;
+
+                    // Add pokemon to database
+                    $query = 'INSERT INTO pokemon (nom, pv, attaque, defense, vitesse, image, id_user) VALUES (:name, :pv, :attack, :defense, :speed, :image, :id_user)';
+                    $prepared_query = $db->prepare($query);
+                    $result = $prepared_query->execute
+                    ([
+                        "name" => $name,
+                        "pv" => $pv,
+                        "attack" => $attack,
+                        "defense" => $defense,
+                        "speed" => $speed,
+                        "image" => $_FILES['image']['name'],
+                        "id_user" => $_SESSION['id']
+                    ]);
+
+                    if ($result)
                     {
-                        $fileNameNew = uniqid('', true).".".$fileActualExt;
-                        $fileDestination = $uploadsPath.'/'.$fileNameNew;
                         move_uploaded_file($fileTmpName, $fileDestination);
-                    }
-                    else
-                    {
-                        header('location:add_pokemon.php?message=Fichier image trop lourd (2 Mo max).');
+                        header('location:add_pokemon.php?message=Pokemon ajouté avec succès.');
                         exit();
                     }
                 }
                 else
                 {
-                    header('location:add_pokemon.php?message=Erreur lors de l\'upload de l\'image.');
+                    header('location:add_pokemon.php?message=Fichier image trop lourd (2 Mo max).');
                     exit();
                 }
             }
             else
             {
-                header('location:add_pokemon.php?message=Veuillez utiliser une image au format jpeg, png ou gif.');
+                header('location:add_pokemon.php?message=Erreur lors de l\'upload de l\'image.');
                 exit();
             }
         }
-
-        header('location:add_pokemon.php?message=Pokemon ajouté avec succès.');
-        exit();
+        else
+        {
+            header('location:add_pokemon.php?message=Veuillez utiliser une image au format jpeg, png ou gif.');
+            exit();
+        }
     }
 
     header('location:add_pokemon.php?message=Erreur lors de l\'ajout du Pokemon. Veuillez réessayer ultérieurement.');
