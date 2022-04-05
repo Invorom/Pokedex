@@ -20,9 +20,16 @@
         exit();
     }
     
-    if(strlen($_POST['register_password']) < 6)
+    // Store booleans for each password requirement
+    $uppercase = preg_match('@[A-Z]@', $_POST['register_password']);
+    $lowercase = preg_match('@[a-z]@', $_POST['register_password']);
+    $number = preg_match('@[0-9]@', $_POST['register_password']);
+    $specialChars = preg_match('@[^\w]@', $_POST['register_password']);
+    $length = strlen($_POST['register_password']) > 8;
+
+    if (!($uppercase && $lowercase && $number && $specialChars && $length))
     {
-        header('location:connexion.php?message=Votre mot de passe doit faire au moins 6 caractères.');
+        header('location:connexion.php?message=Mot de passe invalide.');
         exit();
     }
 
