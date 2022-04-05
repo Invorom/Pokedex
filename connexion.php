@@ -7,7 +7,7 @@
     <body>
     <?php include('includes/header.php');?>
     <main>
-        <h1 style="margin-bottom: 50px">Connexion</h1>
+        <h1 style="margin-bottom: 30px">Connexion</h1>
         <?php include('includes/message.php'); ?>
         <div class="connexion-forms">
             <form class="left connexion-form" action="verif_connexion.php" method="POST">
