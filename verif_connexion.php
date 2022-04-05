@@ -14,10 +14,11 @@
     include('includes/salt.php');
     $q = 'SELECT * FROM user WHERE email = :email AND password = :password';
     $req = $bdd->prepare($q);
-    $req->execute(['email' => $_POST['username'],
-                    'password' => $empreinteSalee
-
-                ]);
+    $req->execute
+    ([
+        'email' => $_POST['email'],
+        'password' => $empreinteSalee
+    ]);
     $result = $req->fetchAll();
     if(count($result) == 0)
     {
