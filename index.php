@@ -11,8 +11,8 @@
     <?php include ('includes/header.php'); ?>
 
     <main>
-        <div class="center" ><img src="images/pikachu.png" alt="pikapika"></div>
-        <h1 class="center">BIENVENUE SUR LE POKEDEX DE L'ESGI</h1>
+        <img class="index-img" src="images/pikachu.png" alt="pikapika">
+        <h1>BIENVENUE SUR LE POKEDEX DE L'ESGI</h1>
     </main>
 
     <?php include ('includes/footer.php'); ?>

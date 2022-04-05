@@ -10,11 +10,21 @@ html {
     font-family: 'Lato';
 }
 
-header, footer{
+header, footer {
     background-color: #AAA;
     color: #FFF;
     padding: 15px 30px;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+}
+
 
 /******************************** H E A D E R ********************************/
 
@@ -22,6 +32,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+}
+
+header img {
+    height: 40px;
 }
 
 nav ul {
@@ -32,7 +47,7 @@ nav li {
     display: inline-block;
 }
 
-a {
+nav a {
     padding: 0.5em;
     text-decoration: none;
     color: #FFF;
@@ -41,37 +56,33 @@ a:hover{
     text-decoration: underline;
 }
 
-.logo{
-    height: 40px;
-}
 
 /********************************** M A I N **********************************/
 
 main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     max-width: 1170px;
-    margin-left: auto;
-    margin-right: auto;
-    font-style: normal;
 }
 
-main > h1 {
+h1 {
+    width: 100%;
+    text-align: center;
     font-size: 45px;
     text-transform: uppercase;
 }
 
-.center{
-    text-align: center;
-}
-
-.row{
+.row {
     display: flex;
     flex-direction: row;
 }
 
 /*  INDEX  */
 
-.img-index{
+.index-img {
     width: 50%;
+    margin: 20px;
 }
 
 /*  PAGE DE CONNEXION  */
@@ -107,8 +118,7 @@ main > h1 {
 /******************************** F O O T E R ********************************/
 
 footer {
-    position: absolute;
-    bottom: 0;
+    margin-top: 0;
     width: 100%;
     text-align: center;
 }
