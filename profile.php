@@ -9,11 +9,11 @@
   <body>
     <?php include ('includes/header.php'); ?>
 
-    <main>
+    <main class="profile">
       <h1>Mon compte</h1>
 
+      <div class="user-info">
       <h2>Mes infos</h2>
-      <div>
         <?php 
                 include('includes/config.php');
                 $query = "SELECT * FROM user WHERE id = :id";
@@ -31,7 +31,7 @@
       </div>
 
       <hr>
-
+      
       <h2>Mes Pokemons</h2>
       <?php 
             $query = "SELECT * FROM pokemon WHERE id_user = :id";
