@@ -51,6 +51,9 @@
     {
         $maxSize = 2*1024*1024;
         $uploadsPath = 'uploads';
+        if (!file_exists($uploadsPath)) {
+            mkdir($uploadsPath, 0777, true);
+        }
         $fileName = $_FILES['image']['name'];
         $fileTmpName = $_FILES['image']['tmp_name'];
         $fileSize = $_FILES['image']['size'];
