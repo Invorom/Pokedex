@@ -16,10 +16,10 @@
 
       <form class="add-pokemon" action="verif_pokemon.php" method="POST" enctype="multipart/form-data">
         <input class="input-field" type="text" name="nom" placeholder="Nom">
-        <input class="input-field" type="text" name="pv" placeholder="PV">
-        <input class="input-field" type="text" name="attaque" placeholder="Attaque">
-        <input class="input-field" type="text" name="défense" placeholder="Défense">
-        <input class="input-field" type="text" name="vitesse" placeholder="Vitesse">
+        <input class="input-field" type="number" name="pv" placeholder="PV">
+        <input class="input-field" type="number" name="attaque" placeholder="Attaque">
+        <input class="input-field" type="number" name="défense" placeholder="Défense">
+        <input class="input-field" type="number" name="vitesse" placeholder="Vitesse">
         <div>
             <label for="image">Image : </label>
             <input type="file" name="image" accept="image/gif, image/png, image/jpeg" required>
