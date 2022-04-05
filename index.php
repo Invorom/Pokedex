@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="one-page">
     
 <?php
     $title="Accueil";

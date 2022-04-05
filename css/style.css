@@ -90,10 +90,8 @@
     font-display: swap;
 }
 
-
-
 html {
-    /*overflow: hidden;*/
+    overflow: hidden;
     font-family: 'Lato';
 }
 
