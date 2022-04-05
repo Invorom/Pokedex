@@ -10,7 +10,7 @@
         <?php include('includes/message.php'); ?>
         <form action="verif_connexion.php" method="POST">
              <h1>Connexion</h1>
-             <input type="email" name="username" value="<?php echo isset($_COOKIE['cookie_username']) ? $_COOKIE['cookie_username'] : '';?>" placeholder="E-mail">
+             <input type="email" name="email" value="<?php echo isset($_COOKIE['email']) ? $_COOKIE['email'] : '';?>" placeholder="E-mail">
              <br>
              <input type="password" name="password" value="" placeholder="Mot de passe">
              <input type="submit" name="connexion" value="Connexion">
