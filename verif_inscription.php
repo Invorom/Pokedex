@@ -29,17 +29,17 @@
     $prepared_query->execute([$_POST['register_username']]);
     $result = $prepared_query->fetchAll();
 
-    if(count($result) != 0)
+    if (count($result) != 0)
     {
         header('location:connexion.php?message=Adresse email déjà utilisée.');
         exit();
     }
 
-    if($_FILES['image']['error'] != 4)
+    if ($_FILES['image']['error'] != 4)
     {
-        $acceptable = ['image/jpeg', 'image/png', 'image/gif'];
+        $acceptable = array('image/jpeg', 'image/png', 'image/gif');
 
-        if(!in_array($_FILES['image']['type'], $acceptable)){
+        if (!in_array($_FILES['image']['type'], $acceptable)){
             header('location:connexion.php?message=Veuillez utiliser une image au format jpeg, png ou gif.');
             exit();
         }
@@ -91,6 +91,6 @@
         exit();
     }
 
-    header('location:connexion.php?message=Erreur lors de l\'inscription');
+    header('location:connexion.php?message=Erreur lors de l\'inscription. Veuillez réessayer ultérieurement.');
     exit();
 ?>

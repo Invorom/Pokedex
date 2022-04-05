@@ -12,6 +12,8 @@
     <main>
       <h1>Ajouter un Pokemon</h1>
 
+      <?php include('includes/message.php'); ?>
+
       <form class="add-pokemon" action="verif_pokemon.php" method="POST">
         <input class="input-field" type="text" name="nom" placeholder="Nom">
         <input class="input-field" type="text" name="pv" placeholder="PV">
