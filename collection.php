@@ -17,7 +17,7 @@ include ('includes/head.php');
         <div class="display-pok">
         <?php
 
-            include('includes/db.php');
+            include('includes/config.php');
             
             $query = 'SELECT nom,pv,attaque,defense,vitesse,image FROM pokemon;';
             $prepared_query = $db->prepare($query);

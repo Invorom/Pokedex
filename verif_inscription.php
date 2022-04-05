@@ -22,7 +22,7 @@
         exit;
     }
 
-    include('includes/db.php');
+    include('includes/config.php');
 
     $query = 'SELECT id FROM user WHERE email = ?';
     $prepared_query = $db->prepare($query);
