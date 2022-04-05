@@ -22,7 +22,7 @@
         <input class="input-field" type="text" name="vitesse" placeholder="Vitesse">
         <div>
             <label for="image">Image : </label>
-            <input type="file" name="image" accept="image/gif, image/png, image/jpeg">
+            <input type="file" name="image" accept="image/gif, image/png, image/jpeg" required>
         </div>
         <input class="submit-btn" type="submit" value="Ajouter">
       </form>

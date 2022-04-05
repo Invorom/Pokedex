@@ -56,30 +56,11 @@
         exit();
     }
 
-    // Check if image is valid
-    if ($_FILES['image']['error'] != 4)
-    {
-        $acceptable = array('image/jpeg', 'image/png', 'image/gif');
-
-        if (!in_array($_FILES['image']['type'], $acceptable)){
-            header('location:add_pokemon.php?message=Veuillez utiliser une image au format jpeg, png ou gif.');
-            exit();
-        }
-
-        $maxSize = 2*1024*1024;
-        if ($_FILES['image']['size'] > $maxSize)
-        {
-            header('location:add_pokemon.php?message=Fichier image trop lourd (2 Mo max).');
-            exit();
-        }
-    }
-
-    // Add Pokemon image
-    $uploadsPath = 'uploads_pokemon';
-
     //Add pokemon image to uploads_pokemon folder
     if ($_FILES['image']['error'] != 4)
     {
+        $maxSize = 2*1024*1024;
+        $uploadsPath = 'uploads_pokemon';
         $fileName = $_FILES['image']['name'];
         $fileTmpName = $_FILES['image']['tmp_name'];
         $fileSize = $_FILES['image']['size'];

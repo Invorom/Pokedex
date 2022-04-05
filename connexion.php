@@ -28,7 +28,7 @@
             </div>
             <div>
                 <label>Votre image de profil</label>
-                <input type="file" name="image" accept="image/gif, image/png, image/jpeg">
+                <input type="file" name="image" accept="image/gif, image/png, image/jpeg" required>
             </div>
             <input type="submit" value="S'inscrire">
         </form>

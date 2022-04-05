@@ -35,61 +35,72 @@
         exit();
     }
 
+    // Add profile picture to uploads folder
     if ($_FILES['image']['error'] != 4)
     {
-        $acceptable = array('image/jpeg', 'image/png', 'image/gif');
+        $maxSize = 2*1024*1024;
+        $uploadsPath = 'uploads';
+        $fileName = $_FILES['image']['name'];
+        $fileTmpName = $_FILES['image']['tmp_name'];
+        $fileSize = $_FILES['image']['size'];
+        $fileError = $_FILES['image']['error'];
+        $fileType = $_FILES['image']['type'];
 
-        if (!in_array($_FILES['image']['type'], $acceptable)){
+        $fileExt = explode('.', $fileName);
+        $fileActualExt = strtolower(end($fileExt));
+
+        $allowed = array('jpg', 'jpeg', 'png', 'gif');
+
+        if (in_array($fileActualExt, $allowed))
+        {
+            if ($fileError === 0)
+            {
+                if ($fileSize < $maxSize)
+                {
+                    $fileNameNew = uniqid('', true).".".$fileActualExt;
+                    $fileDestination = $uploadsPath.'/'.$fileNameNew;
+
+                    $salt = 'gaar5eg7896aerg7ae9r7gaerg7a9A7SgaF56rRgR7GaGrG9gG7G8G,;a:9:6:8!e$r$g$7$a$9$e"r#gaergaer8g7ae9r87gaer98ga9e5h8rae7rha96e8rh7a9er8h7';
+                    $hashed_password = hash('sha512', $salt . $_POST['register_password']);
+
+
+                    $query = 'INSERT INTO user (email, password, image) VALUES (:email, :password, :image)';
+                    $prepared_query = $db->prepare($query);
+                    $result = $prepared_query->execute
+                    ([   
+                        'email' => $_POST['register_username'], 
+                        'password' => $hashed_password,
+                        'image' => isset($filename) ? $filename: ''
+                    ]);
+
+                    if($result)
+                    {
+                        move_uploaded_file($fileTmpName, $fileDestination);
+                        header('location:connexion.php?message=Compte créé avec succès !');
+                        exit();
+                    }
+                }
+                else
+                {
+                    header('location:connexion.php?message=Fichier image trop lourd (2 Mo max).');
+                    exit();
+                }
+            }
+            else
+            {
+                header('location:connexion.php?message=Erreur lors de l\'upload de l\'image.');
+                exit();
+            }
+        }
+        else
+        {
             header('location:connexion.php?message=Veuillez utiliser une image au format jpeg, png ou gif.');
             exit();
         }
-
-        $maxSize = 2*1024*1024;
-        if($_FILES['image']['size'] > $maxSize)
-        {
-            header('location:connexion.php?message=Fichier image trop lourd (2 Mo max).');
-            exit();
-        }
-
-        $uploadsPath = 'uploads';
-
-        if(!file_exists($uploadsPath))
-        {
-            mkdir($uploadsPath, 0777);
-        }
-
-        $filename = $_FILES['image']['name'];
-
-        // Renommage pour éviter les doublons
-        $array = explode('.', $filename);
-        $ext = end($array);
-        $filename = 'image-' . time() . '.' .$ext;
-
-        $destination = $uploadsPath . '/' . $filename;
-        move_uploaded_file($_FILES['image']['tmp_name'], $destination);
     }
 
 
 
-    $salt = 'gaar5eg7896aerg7ae9r7gaerg7a9A7SgaF56rRgR7GaGrG9gG7G8G,;a:9:6:8!e$r$g$7$a$9$e"r#gaergaer8g7ae9r87gaer98ga9e5h8rae7rha96e8rh7a9er8h7';
-    $hashed_password = hash('sha512', $salt . $_POST['register_password']);
-
-
-    $query = 'INSERT INTO user (email, password, image) VALUES (:email, :password, :image)';
-    $prepared_query = $db->prepare($query);
-    $result = $prepared_query->execute
-    ([   
-        'email' => $_POST['register_username'], 
-        'password' => $hashed_password,
-        'image' => isset($filename) ? $filename: ''
-    ]);
-
-    
-    if($result)
-    {
-        header('location:connexion.php?message=Compte créé avec succès !');
-        exit();
-    }
 
     header('location:connexion.php?message=Erreur lors de l\'inscription. Veuillez réessayer ultérieurement.');
     exit();
