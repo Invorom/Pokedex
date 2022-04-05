@@ -12,7 +12,7 @@
     <main class="profile">
       <h1>Mon compte</h1>
 
-      <div class="user-info">
+      <div>
       <h2>Mes infos</h2>
         <?php 
                 include('includes/config.php');
@@ -24,7 +24,7 @@
                 foreach ($results as $key => $value)
                 {
                     echo '<p>Pseudo : '.$value['pseudo'].'</p>';
-                    echo '<p>Email : '.$value['email'].'</p>';
+                    echo '<p>Email : '.$value['email'].'</p><br>';
                     echo 'Image de profil : <img src="uploads/'.$value['image'].'" alt="image de profil">';
                 }
         ?>
