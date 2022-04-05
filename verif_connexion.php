@@ -4,7 +4,7 @@
         setcookie('email', $_POST["email"], time() + 365*24*3600);
     }
     
-    if(empty($_POST['email']) && empty($_POST['password']))
+    if(empty($_POST['email']) || empty($_POST['password']))
     {
         header('location:connexion.php?message=Veuillez remplir les deux champs.');
         exit;

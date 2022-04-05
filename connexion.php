@@ -13,7 +13,7 @@
              <input type="email" name="email" value="<?php echo isset($_COOKIE['email']) ? $_COOKIE['email'] : '';?>" placeholder="E-mail">
              <br>
              <input type="password" name="password" value="" placeholder="Mot de passe">
-             <input type="submit" name="connexion" value="Connexion">
+             <input type="submit" value="Connexion">
         </form>
 
         <form action="verif_inscription.php" method="POST" enctype="multipart/form-data">
@@ -30,7 +30,7 @@
                 <label>Votre image de profile</label>
                 <input type="file" name="image" accept="image/gif, image/png, image/jpeg">
             </div>
-            <input type="submit" name="register_connexion" value="S'inscrire">
+            <input type="submit" value="S'inscrire">
         </form>
     </main>
     <?php include('includes/footer.php');?>

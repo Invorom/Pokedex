@@ -114,6 +114,33 @@ h1 {
     max-height: 100%;
 }
 
+/*************************** A D D   P O K E M O N ***************************/
+
+.add-pokemon {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+.input-field {
+    width: 100%;
+    height: 4em;
+    padding: 1em;
+    margin: 1em 0;
+}
+
+.submit-btn {
+    width: 100%;
+    height: 4em;
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 10px;
+    border: 0;
+    background-color: #4DAE50;
+    color: white;
+    font-family: "Lato";
+}
+
 
 /******************************** F O O T E R ********************************/
 

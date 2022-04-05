@@ -4,13 +4,13 @@
         setcookie('register_cookie', $_POST["register_username"], time() + 3600);
     }
     
-    if(empty($_POST['register_username']) && empty($_POST['register_password']))
+    if (empty($_POST['register_username']) && empty($_POST['register_password']))
     {
         header('location:connexion.php?message=Vous devez remplir les deux champs.');
         exit;
     }
 
-    if(!filter_var($_POST['register_username'], FILTER_VALIDATE_EMAIL) || empty($_POST['register_username']))
+    if (!filter_var($_POST['register_username'], FILTER_VALIDATE_EMAIL))
     {
         header('location:connexion.php?message=Email invalide.');
         exit;
