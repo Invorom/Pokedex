@@ -93,20 +93,48 @@
         // Add Pokemon image
         $uploadsPath = 'uploads_pokemon';
 
-        if(!file_exists($uploadsPath))
+        //Add pokemon image to uploads_pokemon folder
+        if ($_FILES['image']['error'] != 4)
         {
-            mkdir($uploadsPath, 0777);
+            $fileName = $_FILES['image']['name'];
+            $fileTmpName = $_FILES['image']['tmp_name'];
+            $fileSize = $_FILES['image']['size'];
+            $fileError = $_FILES['image']['error'];
+            $fileType = $_FILES['image']['type'];
+
+            $fileExt = explode('.', $fileName);
+            $fileActualExt = strtolower(end($fileExt));
+
+            $allowed = array('jpg', 'jpeg', 'png', 'gif');
+
+            if (in_array($fileActualExt, $allowed))
+            {
+                if ($fileError === 0)
+                {
+                    if ($fileSize < $maxSize)
+                    {
+                        $fileNameNew = uniqid('', true).".".$fileActualExt;
+                        $fileDestination = $uploadsPath.'/'.$fileNameNew;
+                        move_uploaded_file($fileTmpName, $fileDestination);
+                    }
+                    else
+                    {
+                        header('location:add_pokemon.php?message=Fichier image trop lourd (2 Mo max).');
+                        exit();
+                    }
+                }
+                else
+                {
+                    header('location:add_pokemon.php?message=Erreur lors de l\'upload de l\'image.');
+                    exit();
+                }
+            }
+            else
+            {
+                header('location:add_pokemon.php?message=Veuillez utiliser une image au format jpeg, png ou gif.');
+                exit();
+            }
         }
-
-        $filename = $_FILES['image']['name'];
-
-        // Renommage pour éviter les doublons
-        $array = explode('.', $filename);
-        $ext = end($array);
-        $filename = 'image-' . time() . '.' .$ext;
-
-        $destination = $uploadsPath . '/' . $filename;
-        move_uploaded_file($_FILES['image']['tmp_name'], $destination);
 
         header('location:add_pokemon.php?message=Pokemon ajouté avec succès.');
         exit();
