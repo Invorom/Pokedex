@@ -25,7 +25,7 @@
                 {
                     echo '<p>Pseudo : '.$value['pseudo'].'</p>';
                     echo '<p>Email : '.$value['email'].'</p>';
-                    echo 'Image de profil : <img src=upload"'.$value['image'].'" alt="image de profil">';
+                    echo 'Image de profil : <img src=uploads/"'.$value['image'].'" alt="image de profil">';
                 }
         ?>
       </div>
