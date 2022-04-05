@@ -19,10 +19,10 @@ include ('includes/head.php');
 
             include('includes/db.php');
             
-            $q = 'SELECT nom,pv,attaque,defense,vitesse,image FROM pokemon;';
-            $req = $bdd->prepare($q);
-            $req->execute();
-            $results = $req->fetchAll();
+            $query = 'SELECT nom,pv,attaque,defense,vitesse,image FROM pokemon;';
+            $prepared_query = $db->prepare($query);
+            $prepared_query->execute();
+            $results = $prepared_query->fetchAll();
             $count = 0;
 
             echo '<div class="row">';
