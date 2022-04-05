@@ -1,16 +1,20 @@
 <?php 
     if(isset($_POST['register_username']))
     {
-        setcookie('register_cookie', $_POST["register_username"], time() + 3600);
+        setcookie('username', $_POST["register_username"], time() + 3600);
+    }
+    if(isset($_POST['register_email']))
+    {
+        setcookie('email', $_POST["register_email"], time() + 3600);
     }
     
-    if (empty($_POST['register_username']) && empty($_POST['register_password']))
+    if (empty($_POST['register_username']) || empty($_POST['register_email']) || empty($_POST['register_password']))
     {
         header('location:connexion.php?message=Vous devez remplir les deux champs.');
         exit();
     }
 
-    if (!filter_var($_POST['register_username'], FILTER_VALIDATE_EMAIL))
+    if (!filter_var($_POST['register_email'], FILTER_VALIDATE_EMAIL))
     {
         header('location:connexion.php?message=Email invalide.');
         exit();
@@ -26,7 +30,7 @@
 
     $query = 'SELECT id FROM user WHERE email = ?';
     $prepared_query = $db->prepare($query);
-    $prepared_query->execute([$_POST['register_username']]);
+    $prepared_query->execute([$_POST['register_email']]);
     $result = $prepared_query->fetchAll();
 
     if (count($result) != 0)
@@ -64,13 +68,14 @@
                     $hashed_password = hash('sha512', $salt . $_POST['register_password']);
 
 
-                    $query = 'INSERT INTO user (email, password, image) VALUES (:email, :password, :image)';
+                    $query = 'INSERT INTO user (pseudo, email, password, image) VALUES (:username, :email, :password, :image)';
                     $prepared_query = $db->prepare($query);
                     $result = $prepared_query->execute
                     ([   
-                        'email' => $_POST['register_username'], 
+                        'username' => $_POST['register_username'],
+                        'email' => $_POST['register_email'], 
                         'password' => $hashed_password,
-                        'image' => isset($filename) ? $filename: ''
+                        'image' => $fileNameNew
                     ]);
 
                     if($result)

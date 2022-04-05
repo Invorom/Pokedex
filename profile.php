@@ -12,24 +12,27 @@
     <main>
       <h1>Mon compte</h1>
 
-      <h3>Mes infos</h3>
-      <?php 
-            include('includes/config.php');
-            $query = "SELECT * FROM user WHERE id = :id";
-            $prepared_query = $db->prepare($query);
-            $prepared_query->execute(array('id' => $_SESSION['id']));
-            $results = $prepared_query->fetchAll();
+      <h2>Mes infos</h2>
+      <div>
+        <?php 
+                include('includes/config.php');
+                $query = "SELECT * FROM user WHERE id = :id";
+                $prepared_query = $db->prepare($query);
+                $prepared_query->execute(array('id' => $_SESSION['id']));
+                $results = $prepared_query->fetchAll();
 
-            foreach ($results as $key => $value) {
-                echo '<p>Pseudo : '.$value['pseudo'].'</p>';
-                echo '<p>Email : '.$value['email'].'</p>';
-                echo 'Image de profil : <img src="'.$value['image'].'" alt="image de profil">';
-            }
-      ?>
+                foreach ($results as $key => $value)
+                {
+                    echo '<p>Pseudo : '.$value['pseudo'].'</p>';
+                    echo '<p>Email : '.$value['email'].'</p>';
+                    echo 'Image de profil : <img src=upload"'.$value['image'].'" alt="image de profil">';
+                }
+        ?>
+      </div>
 
       <hr>
 
-      <h3>Mes Pokemons</h3>
+      <h2>Mes Pokemons</h2>
       <?php 
             $query = "SELECT * FROM pokemon WHERE id_user = :id";
             $prepared_query = $db->prepare($query);
