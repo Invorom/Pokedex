@@ -31,6 +31,20 @@
     
     session_start();
     $_SESSION['email'] = $_POST['email'];
+
+    // Get user id
+    $query = 'SELECT id FROM user WHERE email = :email';
+    $prepared_query = $db->prepare($query);
+    $prepared_query->execute(["email" => $_POST['email']]);
+    $result = $prepared_query->fetchAll();
+
+    if(count($result) == 0)
+    {
+        header('location:connexion.php?message=Erreur lors de la connexion. Veuiillez réessayer ultérieurement.');
+        exit();
+    }
+    $_SESSION['id'] = $result[0]['id'];
+
     header('location:index.php');
     exit();
 ?>

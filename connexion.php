@@ -27,7 +27,7 @@
                 <input type="password" name="register_password" value="" placeholder="Mot de passe" required>
             </div>
             <div>
-                <label>Votre image de profile</label>
+                <label>Votre image de profil</label>
                 <input type="file" name="image" accept="image/gif, image/png, image/jpeg">
             </div>
             <input type="submit" value="S'inscrire">

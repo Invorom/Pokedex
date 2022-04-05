@@ -14,7 +14,7 @@
 
       <?php include('includes/message.php'); ?>
 
-      <form class="add-pokemon" action="verif_pokemon.php" method="POST">
+      <form class="add-pokemon" action="verif_pokemon.php" method="POST" enctype="multipart/form-data">
         <input class="input-field" type="text" name="nom" placeholder="Nom">
         <input class="input-field" type="text" name="pv" placeholder="PV">
         <input class="input-field" type="text" name="attaque" placeholder="Attaque">

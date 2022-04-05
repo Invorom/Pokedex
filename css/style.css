@@ -116,6 +116,7 @@ h1 {
 
 .message {
     color: red;
+    font-weight: bold;
 }
 
 /*************************** A D D   P O K E M O N ***************************/
@@ -144,6 +145,7 @@ h1 {
     color: white;
     font-family: "Lato";
     cursor: pointer;
+    font-weight: bold;
 }
 .submit-btn:hover{
     background-color: #3D9C3D;

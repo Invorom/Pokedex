@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     $name = $_POST['nom'];
     $pv = $_POST['pv'];
     $attack = $_POST['attaque'];
@@ -22,7 +24,7 @@
 
     if(count($result) != 0)
     {
-        header('location:connexion.php?message=Adresse email déjà utilisée.');
+        header('location:add_pokemon.php?message=Nom de Pokemon déjà utilisé.');
         exit();
     }
 
@@ -73,9 +75,18 @@
     }
 
     // Add pokemon to database
-    $query = 'INSERT INTO pokemon (nom, pv, attaque, defense, vitesse) VALUES (:name, :pv, :attack, :defense, :speed)';
+    $query = 'INSERT INTO pokemon (nom, pv, attaque, defense, vitesse, image, id_user) VALUES (:name, :pv, :attack, :defense, :speed, :image, :id_user)';
     $prepared_query = $db->prepare($query);
-    $result = $prepared_query->execute(["name" => $name, "pv" => $pv, "attack" => $attack, "defense" => $defense, "speed" => $speed]);
+    $result = $prepared_query->execute
+    ([
+        "name" => $name,
+        "pv" => $pv,
+        "attack" => $attack,
+        "defense" => $defense,
+        "speed" => $speed,
+        "image" => $_FILES['image']['name'],
+        "id_user" => $_SESSION['id']
+    ]);
 
     if ($result)
     {
