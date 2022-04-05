@@ -24,10 +24,10 @@
 
     include('includes/db.php');
 
-    $q = 'SELECT id FROM user WHERE email = ?';
-    $req = $bdd->prepare($q);
-    $req->execute([$_POST['register_username']]);
-    $result = $req->fetchAll();
+    $query = 'SELECT id FROM user WHERE email = ?';
+    $prepared_query = $db->prepare($query);
+    $prepared_query->execute([$_POST['register_username']]);
+    $result = $prepared_query->fetchAll();
 
     if(count($result) != 0)
     {
@@ -72,15 +72,15 @@
 
 
     $salt = 'gaar5eg7896aerg7ae9r7gaerg7a9A7SgaF56rRgR7GaGrG9gG7G8G,;a:9:6:8!e$r$g$7$a$9$e"r#gaergaer8g7ae9r87gaer98ga9e5h8rae7rha96e8rh7a9er8h7';
-    $empreinteSalee = hash('sha512', $salt . $_POST['register_password']);
+    $hashed_password = hash('sha512', $salt . $_POST['register_password']);
 
 
-    $q = 'INSERT INTO user (email, password, image) VALUES (:email, :password, :image)';
-    $req = $bdd->prepare($q);
-    $result = $req->execute
+    $query = 'INSERT INTO user (email, password, image) VALUES (:email, :password, :image)';
+    $prepared_query = $db->prepare($query);
+    $result = $prepared_query->execute
     ([   
         'email' => $_POST['register_username'], 
-        'password' => $empreinteSalee,
+        'password' => $hashed_password,
         'image' => isset($filename) ? $filename: ''
     ]);
 
